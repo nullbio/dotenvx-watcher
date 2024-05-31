@@ -98,7 +98,7 @@ _decrypt_and_save() {
 
 function env_watch {
 	set +e # disable exit on error to ensure cleanup doesn't get skipped
-	local sub_dir="${RAMFS_SUBDIR:-nanowire}"
+	local sub_dir="${RAMFS_SUBDIR:-dotenvx}"
 	local mount_point="/mnt/ramfs/${sub_dir}"
 
   # Check for another instance running
