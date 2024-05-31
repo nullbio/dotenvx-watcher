@@ -19,3 +19,26 @@ This env file watcher was primarily created to assist with the integration of Do
 
 After trying to integrate Dotenvx with Docker the "traditional" way, I decided that this was a much nicer solution. You can read more about this process in an article I wrote here: [https://dev.to/nullbio/dotenvx-with-docker-the-better-way-to-do-environment-variable-management-5c0n](https://dev.to/nullbio/dotenvx-with-docker-the-better-way-to-do-environment-variable-management-5c0n).
 
+
+## Example usage
+
+```docker
+# compose.yml
+services:
+   postgres:
+      image: postgres:latest
+      env_file:
+         - /mnt/ramfs/projectname/.env.dev.decrypted
+      environment:
+         # $POSTGRES_PASSWORD is decrypted inside .env.dev.decrypted
+         POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+```
+
+```plaintext
+$: ./watch.sh .env.dev
+Env file watcher started: .env.dev -> /mnt/ramfs/projectname/.env.dev.decrypted
+Env file watchers running and waiting for file changes. Ctrl+C to quit...
+Detected modification in .env.dev, decrypting and updating /mnt/ramfs/projectname/.env.dev.decrypted ...
+^C
+Deleting decrypted env files from memory: /mnt/ramfs/projectname
+```
