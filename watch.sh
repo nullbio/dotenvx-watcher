@@ -17,6 +17,10 @@ Description:
   and store the decrypted file in a ramfs memory-based filesystem mount.
   If no file is specified, it defaults to watching '.env.dev'.
 
+  Default path is /mnt/ramfs/dotenvx/*.envfilename*.decrypted
+  The subdirectory (by default, named "dotenvx") can be changed by specifying the
+  environment variable RAMFS_SUBDIR.
+
 Examples:
   1. Watch the default environment file:
      $0
@@ -26,6 +30,9 @@ Examples:
 
   3. Watch multiple environment files:
      $0 ~/.env.dev /path/to/.env.prod
+
+  4. Change the subdirectory:
+     RAMFS_SUBDIR=projectname && $0
 
 This command allows you to specify custom environment files to monitor. If no arguments are provided,
 it assumes the file '.env.dev'. Multiple files can be watched by providing each as an argument separated
