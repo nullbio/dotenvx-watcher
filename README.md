@@ -36,9 +36,16 @@ services:
 
 ```plaintext
 $: ./watch.sh .env.dev
-Env file watcher started: .env.dev -> /mnt/ramfs/projectname/.env.dev.decrypted
+Env file watcher started: .env.dev -> /mnt/ramfs/dotenvx/.env.dev.decrypted
 Env file watchers running and waiting for file changes. Ctrl+C to quit...
 Detected modification in .env.dev, decrypting and updating /mnt/ramfs/projectname/.env.dev.decrypted ...
 ^C
 Deleting decrypted env files from memory: /mnt/ramfs/projectname
+```
+
+Specify custom subdirectory:
+
+```
+$: RAMFS_SUBDIR=projectname && ./watch.sh
+Env file watcher started: .env.dev -> /mnt/ramfs/projectname/.env.dev.decrypted
 ```
