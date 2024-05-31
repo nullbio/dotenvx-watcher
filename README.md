@@ -1,6 +1,6 @@
 # dotenvx-watcher
 
-Env file watcher that watches and decrypts env files on the fly, and stores them in a file-system accessible path.
+Env file watcher that watches and decrypts env files on the fly, using Dotenvx for decryption, and stores them in a file-system accessible path for easy loading into a Docker `env_file` directive, so that your Docker containers can be fed live env var file changes.
 
 ## Dependencies & Usage
 
