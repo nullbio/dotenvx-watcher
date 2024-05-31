@@ -64,8 +64,10 @@ services:
          POSTGRES_PASSWORD: $POSTGRES_PASSWORD
 ```
 
+Regular usage example:
+
 ```console
-$: ./watch.sh .env.dev
+$: ./watch.sh
 Env file watcher started: .env.dev -> /mnt/ramfs/dotenvx/.env.dev.decrypted
 Env file watchers running and waiting for file changes. Ctrl+C to quit...
 Detected modification in .env.dev, decrypting and updating /mnt/ramfs/dotenvx/.env.dev.decrypted ...
@@ -75,7 +77,7 @@ Deleting decrypted env files from memory: /mnt/ramfs/dotenvx
 
 Specify custom subdirectory:
 
-```
+```console
 $: RAMFS_SUBDIR=projectname && ./watch.sh
 Env file watcher started: .env.dev -> /mnt/ramfs/projectname/.env.dev.decrypted
 ```
