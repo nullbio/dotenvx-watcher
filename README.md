@@ -28,7 +28,7 @@ services:
    postgres:
       image: postgres:latest
       env_file:
-         - /mnt/ramfs/projectname/.env.dev.decrypted
+         - /mnt/ramfs/dotenvx/.env.dev.decrypted
       environment:
          # $POSTGRES_PASSWORD is decrypted inside .env.dev.decrypted
          POSTGRES_PASSWORD: $POSTGRES_PASSWORD
@@ -38,9 +38,9 @@ services:
 $: ./watch.sh .env.dev
 Env file watcher started: .env.dev -> /mnt/ramfs/dotenvx/.env.dev.decrypted
 Env file watchers running and waiting for file changes. Ctrl+C to quit...
-Detected modification in .env.dev, decrypting and updating /mnt/ramfs/projectname/.env.dev.decrypted ...
+Detected modification in .env.dev, decrypting and updating /mnt/ramfs/dotenvx/.env.dev.decrypted ...
 ^C
-Deleting decrypted env files from memory: /mnt/ramfs/projectname
+Deleting decrypted env files from memory: /mnt/ramfs/dotenvx
 ```
 
 Specify custom subdirectory:
