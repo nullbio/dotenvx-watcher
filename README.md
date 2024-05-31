@@ -22,6 +22,36 @@ After trying to integrate Dotenvx with Docker the "traditional" way, I decided t
 
 ## Example usage
 
+```usage
+Usage: ./watch.sh [options] [file...]
+
+Options:
+  -h, --help                Show this help message and exit.
+
+Description:
+  This script monitors one or more environment files for changes.
+  When a change is detected, it will decrypt the monitored file using dotenvx,
+  and store the decrypted file in a ramfs memory-based filesystem mount.
+  If no file is specified, it defaults to watching '.env.dev'.
+
+  Default path is /mnt/ramfs/dotenvx/*.envfilename*.decrypted
+  The subdirectory (by default, named "dotenvx") can be changed by specifying the
+  environment variable RAMFS_SUBDIR.
+
+Examples:
+  1. Watch the default environment file:
+     ./watch.sh
+
+  2. Watch a specific environment file:
+     ./watch.sh .env.dev
+
+  3. Watch multiple environment files:
+     ./watch.sh ~/.env.dev /path/to/.env.prod
+
+  4. Change the subdirectory:
+     RAMFS_SUBDIR=projectname && ./watch.sh
+```
+
 ```docker
 # compose.yml
 services:
