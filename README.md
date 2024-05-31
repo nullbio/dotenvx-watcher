@@ -22,7 +22,7 @@ After trying to integrate Dotenvx with Docker the "traditional" way, I decided t
 
 ## Example usage
 
-```usage
+```console
 Usage: ./watch.sh [options] [file...]
 
 Options:
@@ -48,11 +48,11 @@ Examples:
   3. Watch multiple environment files:
      ./watch.sh ~/.env.dev /path/to/.env.prod
 
-  4. Change the subdirectory:
+  4. Change the subdirectory where the decrypted files are stored:
      RAMFS_SUBDIR=projectname && ./watch.sh
 ```
 
-```docker
+```yaml
 # compose.yml
 services:
    postgres:
@@ -64,7 +64,7 @@ services:
          POSTGRES_PASSWORD: $POSTGRES_PASSWORD
 ```
 
-```plaintext
+```console
 $: ./watch.sh .env.dev
 Env file watcher started: .env.dev -> /mnt/ramfs/dotenvx/.env.dev.decrypted
 Env file watchers running and waiting for file changes. Ctrl+C to quit...
